@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-   "prepare": "husky install",
+    "prepare": "husky",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -59,7 +59,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-    "lint-staged": {
+  "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write"
