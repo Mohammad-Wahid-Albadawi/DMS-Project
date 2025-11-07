@@ -1,2 +1,4 @@
-echo '#!/bin/sh
-npx --no-install vite build' | Out-File -Encoding utf8 .husky/pre-push
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx npm-run-build
