@@ -4,7 +4,6 @@ import AddAppointment from "./pages/AddAppointment";
 import PatientsList from "./pages/PatientsList";
 import HomePage from "./pages/HomePage";
 import Err404 from "./pages/Error404";
-import React from "react";
 
 const router = createBrowserRouter([
   // layout
