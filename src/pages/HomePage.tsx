@@ -1,5 +1,5 @@
 //components from chakra
-import { Box, Text, Flex, Heading, Image, Button } from "@chakra-ui/react";
+import { Box, Text, Flex, Heading, Image, Button } from "@chakra-ui/react"
 //css file
 import classes from './HomePage.module.css';
 //main photo as png

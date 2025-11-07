@@ -10,6 +10,12 @@ import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
+
+const a = 2;
+if(a == 2) {
+    console.log(a);
+}
+
     return <Box bg={'teal.200'} color={'#323232'} py={8} direction={'ltr'}>
         <SimpleGrid columns={{base : 1 , md : 2}} placeItems={'center'}>
         <Flex direction={{base : 'column' , md : 'row'}} textAlign={{base : 'center' , md : 'left' }}>

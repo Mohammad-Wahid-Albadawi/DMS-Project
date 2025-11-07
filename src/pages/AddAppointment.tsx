@@ -18,10 +18,10 @@ const AddAppointment = () => {
   const MotionButton = motion(Button);
   const [prirorAppointment , setPrirorAppointment] = useState(true);
   const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const {register , reset , handleSubmit , formState} = useForm<PatientData>();
-    function submitData (data : PatientData) {
-        const item : PatientStatus = {
+  const dispatch = useDispatch();
+  const {register , reset , handleSubmit , formState} = useForm<PatientData>();
+  function submitData (data : PatientData) {
+  const item : PatientStatus = {
           id : Date.now().toLocaleString(),
           ...data,
           status : data.appointmentType === 'emergency' ? 'current' : data.appointmentType === 'priror' ? 'comming' : 'waiting' ,
