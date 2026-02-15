@@ -1,84 +1,78 @@
-import ReactApexChart from "react-apexcharts";
+//components from chakra
+import { Box, Text, Flex, Heading, Image, Button } from "@chakra-ui/react";
+//css file
+import classes from "./HomePage.module.css";
+//main photo as png
+import tooth from "../../src/assets/tooth.png";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-export default function HomePage() {
-  const options = {
-    chart: {
-      type: "bar",
-      height: 350,
-      toolbar: {
-        show: true,
-      },
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: "55%",
-        borderRadius: 5,
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      show: true,
-      width: 2,
-      colors: ["transparent"],
-    },
-    xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-      ],
-    },
-    yaxis: {
-      title: {
-        text: "Sales (thousands)",
-      },
-    },
-    fill: {
+const HomePage = () => {
+  //for animate welcome text
+  const MotionHeading = motion(Heading);
+  const welcomeText = "أهلا بكم في نظام إدارة حجوزات العيادات السنية";
+
+  const parentVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
       opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.05, duration: 0.5 },
     },
-    tooltip: {
-      y: {
-        formatter: function (val) {
-          return "$ " + val + "k";
-        },
-      },
-    },
-    colors: ["#008FFB", "#00E396", "#FEB019"],
   };
 
-  const series = [
-    {
-      name: "Product A",
-      data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
-    },
-    {
-      name: "Product B",
-      data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
-    },
-    {
-      name: "Product C",
-      data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
-    },
-  ];
+  const childVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Sales by Month</h2>
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="bar"
-        height={350}
-      />
-    </div>
+    <Box marginBottom={"100px"} marginTop={"100px"}>
+      <Flex
+        direction={{ base: "column", md: "row-reverse" }}
+        justifyContent={"space-evenly"}
+        alignItems={"center"}
+      >
+        <Box className={classes["parent-image-home"]}>
+          <Image src={tooth} className={classes["image-home"]} />
+        </Box>
+        <Box
+          maxWidth={"400px"}
+          color={"#41C36D"}
+          mt={"50px"}
+          textAlign={"center"}
+        >
+          <MotionHeading
+            as={"h3"}
+            fontSize={"30px"}
+            lineHeight={"1.4"}
+            variants={parentVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {welcomeText.split("").map((char, key) => (
+              <motion.span key={key} variants={childVariants}>
+                {char}
+              </motion.span>
+            ))}
+          </MotionHeading>
+          <Text color={"#2c7f89"} my={7} fontSize={"20px"}>
+            تستطيع بسهولة إضافة حجوزات والتحكم بأولويات الجلسات
+          </Text>
+          <Link to="/addappointment">
+            <Button
+              bg={"blue.500"}
+              color={"white"}
+              p={"10px 25px"}
+              fontSize={"1.1rem"}
+            >
+              ابدأ الآن
+            </Button>
+          </Link>
+        </Box>
+      </Flex>
+    </Box>
   );
-}
+};
+
+export default HomePage;

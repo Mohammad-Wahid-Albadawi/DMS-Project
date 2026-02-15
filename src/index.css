@@ -4,6 +4,11 @@
   margin: 0;
   font-family: "Cairo", sans-serif;
 }
+
+body {
+  background-color: #eeeeee;
+}
+
 .form-appointment {
   max-width: 500px;
   margin: 50px auto;
